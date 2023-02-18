@@ -1,4 +1,4 @@
-import { TextField, } from '@material-ui/core'
+import { TextField, TextareaAutosize} from '@material-ui/core'
 
 export const AppTextField = (props: any) => {
 
@@ -13,3 +13,18 @@ export const AppTextField = (props: any) => {
         />
     )
 }
+
+export const AppTextArea = (props: any) => {
+
+    const {
+        label,
+        defaultValue,
+        ...rest
+    } = props
+    return (
+        <TextareaAutosize 
+        { ...props }
+        />
+    )
+}
+

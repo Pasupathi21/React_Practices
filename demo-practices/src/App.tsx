@@ -1,20 +1,26 @@
-import './App.css';
+import "./App.css";
 
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import DemoPage from './AppModules/demo/demoPage'
+import DemoPage from "./AppModules/demo/list-page";
 
 const appRoutes = createBrowserRouter([
   {
-    path: '',
-    element: <DemoPage />
+    path: "",
+    element: <DemoPage />,
   },
-])
+]);
 
 function App() {
   return (
     <>
-      <RouterProvider router={appRoutes} />
+      <div
+        style={{
+          overflow: "hidden",
+        }}
+      >
+        <RouterProvider router={appRoutes} />
+      </div>
     </>
   );
 }
