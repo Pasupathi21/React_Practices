@@ -2,7 +2,7 @@ import './App.css';
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
-import DemoPage from './modules/demo/index'
+import DemoPage from './AppModules/demo/index'
 
 const appRoutes = createBrowserRouter([
   {
