@@ -11,25 +11,30 @@ import {
   AppCheckBox,
 } from "../../components/index";
 
+import { boxStyle, inputFields, buttonsStyl } from "../../component-styles/index"
+
 function DemoAddEditView(props: any) {
+  const boxClasses = boxStyle()
+  const inpuFileds = inputFields()
+  const btnClasses = buttonsStyl()
   return (
     <AppCard>
       <AppGridLayout container spacing={3}>
         <AppGridLayout container item xs={6}>
           <AppBoxLayout>
-            <AppTextField label="First Name"></AppTextField>
+            <AppTextField label="First Name" variant='outlined' ></AppTextField>
           </AppBoxLayout>
         </AppGridLayout>
 
         <AppGridLayout container item xs={6}>
           <AppBoxLayout>
-            <AppTextField label="Last Name"></AppTextField>
+            <AppTextField label="Last Name" variant='outlined'></AppTextField>
           </AppBoxLayout>
         </AppGridLayout>
 
         <AppGridLayout container item xs={6}>
           <AppBoxLayout>
-            <AppTextField label="Age"></AppTextField>
+            <AppTextField label="Age" variant='outlined'></AppTextField>
           </AppBoxLayout>
         </AppGridLayout>
 
@@ -49,21 +54,15 @@ function DemoAddEditView(props: any) {
 
         <AppGridLayout container item xs={12}>
           <AppBoxLayout>
-            <AppTextArea></AppTextArea>
+            <AppTextArea variant='outlined'></AppTextArea>
           </AppBoxLayout>
         </AppGridLayout>
-        <AppDivider />
+        {/* <AppDivider /> */}
+        {/* <AppDivider /> */}
 
         <AppGridLayout container item xs={12}>
           <AppBoxLayout>
-            <AppTextArea></AppTextArea>
-          </AppBoxLayout>
-        </AppGridLayout>
-        <AppDivider />
-
-        <AppGridLayout container item xs={12}>
-          <AppBoxLayout>
-            <AppAutoComplete></AppAutoComplete>
+            <AppAutoComplete id='combo-box-demo' variant='outlined'></AppAutoComplete>
           </AppBoxLayout>
         </AppGridLayout>
 
@@ -73,6 +72,12 @@ function DemoAddEditView(props: any) {
           </AppBoxLayout>
         </AppGridLayout>
       </AppGridLayout>
+
+      <AppGridLayout container item xs={12}>
+          <AppBoxLayout>
+            <AppButton btnName="submit" variant="contained" className={btnClasses.root}></AppButton>
+          </AppBoxLayout>
+        </AppGridLayout>
     </AppCard>
   );
 }

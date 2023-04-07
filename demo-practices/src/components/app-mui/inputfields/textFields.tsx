@@ -1,4 +1,5 @@
 import { TextField, TextareaAutosize} from '@material-ui/core'
+import '../../../styles/global.css'
 
 export const AppTextField = (props: any) => {
 

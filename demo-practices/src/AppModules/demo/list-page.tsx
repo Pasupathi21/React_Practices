@@ -69,12 +69,12 @@ function DemoPage() {
         </AppGridLayout>
       </AppPaperSurface>
       <AppDrawer
-      className={drawerStyle.paper}
+      className={[drawerStyle.paper, drawerStyle.root]}
       anchor={drawState.anchor}
       open={drawState.anchor}
       >
         <DemoAddEditView />
-      </AppDrawer>
+      </AppDrawer >
     </>
   );
 }
