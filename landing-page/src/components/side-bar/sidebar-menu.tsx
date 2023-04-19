@@ -20,7 +20,17 @@ export const sideBarMenus: Record<any, string | JSX.Element | any>[] = [
     {
         title: 'Contact',
         icon: PermContactCalendarIcon,
-        link: '/contact'
+        link: '/contact',
+        submenus: [
+            {
+                title: 'contact 1',
+                link: '/contact/contact_1'
+            },
+            {
+                title: 'contact 2',
+                link: '/contact/contact_2'
+            }
+        ]
     },
     {
         title: 'Group',
@@ -28,8 +38,22 @@ export const sideBarMenus: Record<any, string | JSX.Element | any>[] = [
         link: '/group'
     },
     {
-        title: 'Setings',
+        title: 'Settings',
         icon: SettingsIcon ,
-        link: '/settings'
+        link: '/settings',
+        submenus: [
+            {
+                title: 'setting 1',
+                link: '/settings/setting_1'
+            },
+            {
+                title: 'setting 2',
+                link: '/settings/setting_2'
+            },
+            {
+                title: 'setting 3',
+                link: '/settings/setting_3'
+            }
+        ]
     }
 ]
