@@ -11,6 +11,7 @@ import Contact from "./components/content/contact/contact.component";
 import Group from "./components/content/group/group.component";
 import Settings from "./components/content/settings/settings.component";
 import FormOne from "./components/content/forms/form-one.component";
+import NewForm from "./components/content/forms/new-form";
 
 function App() {
   const [width, setWidth] = useState<any>(100);
@@ -75,6 +76,12 @@ function App() {
             </Routes>
           </Grid>
         </Grid>
+        <Routes>
+              <Route
+                path='/new-form'
+                element={<NewForm />}
+              ></Route>
+            </Routes>
       </BrowserRouter>
     </main>
   );
