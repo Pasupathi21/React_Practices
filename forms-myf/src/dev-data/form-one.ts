@@ -6,5 +6,17 @@ export const initValue = {
  checkbox: '',
  country: '',
  state: '',
- address: ''
+ address: '',
+ skills: [
+    {
+        skill: {
+            label: '',
+            value: 0
+        },
+        experience: {
+            label: '',
+            value: 0
+        },
+    }
+ ]
 }
