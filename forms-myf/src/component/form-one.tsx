@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unreachable
 import React, { useState } from "react";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form, Field, ErrorMessage, FieldArray } from "formik";
 import {
   Typography,
   Box,
@@ -110,6 +110,44 @@ const autoCom = [
     value: "bhr",
   },
 ];
+
+const skill = [
+  {
+    label: 'JS',
+    value: 'js'
+  },
+  {
+    label: 'React',
+    value: 'react'
+  },
+  {
+    label: 'JAVA',
+    value: 'java'
+  },
+  {
+    label: 'Python',
+    value: 'python'
+  }
+]
+
+const expLevel = [
+  {
+    label: 'One Year',
+    value: 1
+  },
+  {
+    label: 'Two Years',
+    value: 2
+  },
+  {
+    label: 'Three Years',
+    value: 3
+  },
+  {
+    label: 'Four Years',
+    value: 4
+  }
+]
 
 export default function FormOne(): JSX.Element {
   const [schema, setSchema] = useState<any>(formOneSchema())
@@ -255,6 +293,67 @@ export default function FormOne(): JSX.Element {
                   </Grid>
                   <Grid container item xs={12} spacing={2}>
                     <Divider style={{ border: "2px solid blue" }} />
+                  </Grid>
+                  <Grid container item xs={12} spacing={2}>
+                    <Button variant="contained" onClick={()=> {
+                      values.skills.push({
+                        skill: {
+                            label: '',
+                            value: 0
+                        },
+                        experience: {
+                            label: '',
+                            value: 0
+                        },
+                    })
+                    }}>ADD</Button>
+                  </Grid>
+                  <Grid container item xs={12} spacing={2}>
+                    <FieldArray
+                    name="skills"
+                    render={({push, remove}) => (
+                      values.skills.map((_, skI) => (
+                        <Grid container item xs={12} key={skI} spacing={2}>
+                          <Grid container item xs={2} justifyContent="center" alignContent="cenetr">
+                            <Typography variant="body2">{skI + 1}</Typography>
+                          </Grid>
+                          <Grid container item xs={4}>
+                            <Field as={Autocomplete} options={skill} renderInput={(params: any) => (
+                          <TextField
+                            {...params}
+                            label="select skill"
+                            variant="outlined"
+                            fullWidth
+                           
+                          />
+                        )}
+                        name="skill"
+                        fullWidth
+                        onChange={(_: any, nVal: any) => {
+                          // setFieldValue(`skills[${skI}]`, nVal)
+                          values.skills[skI] = nVal
+                        }}
+                        />
+                          </Grid>
+                          <Grid container item xs={4}>
+                          <Field as={Autocomplete} options={expLevel} renderInput={(params: any) => (
+                          <TextField
+                            {...params}
+                            label="select experience level"
+                            variant="outlined"
+                          />
+                        )}
+                        name="explevel"
+                        fullWidth/>
+                          </Grid>
+                          <Grid container item xs={2}>
+                            <Button variant="outlined" onClick={()=> remove(skI + 1)}>Delete</Button>
+                          </Grid>
+                        </Grid>
+                      ))
+
+                    )}
+                    />
                   </Grid>
                   <Grid container item xs={12} spacing={2}>
                     <Grid xs={12} container item>
