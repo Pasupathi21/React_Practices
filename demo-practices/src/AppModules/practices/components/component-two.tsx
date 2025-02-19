@@ -1,10 +1,12 @@
 import { useContext, useState, useEffect } from 'react'
 import { UserDataContext } from '../index'
+import { FirstComponentContext }from './component-one'
 function ComponentTwo({ 
     title,
     handleInputChange 
 }: any) {
   const userContextData = useContext(UserDataContext) as any []
+  const firstComponentContext = useContext(FirstComponentContext) as any
   const [state, setState]: any = useState(userContextData?.length ? userContextData : [])
   useEffect(() => {
     console.log("ComponentTwo side effect")
@@ -27,6 +29,9 @@ function ComponentTwo({
       value={title} 
     //   child to parent state update
       onChange={handleInputChange}/>
+      <div>
+        Component One Value: {firstComponentContext}
+      </div>
       <p>User count: {state?.length }</p>
       {
         state?.map((item: Record<string, any>) => (
