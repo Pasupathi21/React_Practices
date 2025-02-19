@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, createContext } from "react";
 import ComponentTwo from './component-two'
+
 
 function ComponentOne(props: any) {
   const [state, setState] = useState({
@@ -14,6 +15,7 @@ function ComponentOne(props: any) {
         [elementTarget?.name]: [elementTarget?.value]
     })
   }
+  
   useEffect(() => {
     console.log("ComponentOne side effect")
   }, [])
