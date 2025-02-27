@@ -1,6 +1,9 @@
-import { useContext, useState, useEffect } from 'react'
+import { useContext, useState, useEffect, useMemo } from 'react'
 import { UserDataContext } from '../index'
 import { FirstComponentContext }from './component-one'
+import ComponentThree from './component-three'
+import { HOC } from './hoc'
+
 function ComponentTwo({ 
     title,
     handleInputChange 
@@ -15,6 +18,7 @@ function ComponentTwo({
     userContextData
   ])
   console.log("ComponentTwo ", state)
+  const HOCComponentThree = HOC(ComponentThree)
   return (
     <>
       <h2>Component Two</h2>
@@ -29,6 +33,9 @@ function ComponentTwo({
       value={title} 
     //   child to parent state update
       onChange={handleInputChange}/>
+      <div>
+        <HOCComponentThree />
+      </div>
       <div>
         Component One Value: {firstComponentContext}
       </div>
