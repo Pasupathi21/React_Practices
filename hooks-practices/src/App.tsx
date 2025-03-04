@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider} from 'react-router-dom'
 
 import { ParentOne } from './components/parent-one'
 import { SimpleForm } from './components/forms';
+import ImperativeComponent from './components/imperative/parent'
 
 const routes = createBrowserRouter([
   {
@@ -14,6 +15,10 @@ const routes = createBrowserRouter([
   {
     path: '/form-page',
     element: <SimpleForm />
+  },
+  {
+    path: '/page-two',
+    element: <ImperativeComponent />
   }
 ])
 
