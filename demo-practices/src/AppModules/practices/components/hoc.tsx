@@ -1,10 +1,12 @@
 import React, { createContext, useState } from "react";
 
 export const HocContext = createContext({});
-function HOC(Component: React.ReactNode) {
+export function HOC(Component: any) {
   const [state, _setState] = useState({
     message: "from HOC",
   });
-//   return <HocContext.Provider value={state?.message}>Component</HocContext.Provider>;
-return Component
+  console.log("HOC Componen >>>>>>>>");
+  return function ComponentWrapper(props: any) {
+    return <Component {...props} />;
+  };
 }

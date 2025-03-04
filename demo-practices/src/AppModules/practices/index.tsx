@@ -1,5 +1,6 @@
 import { useState, useEffect, createContext } from "react";
 import ComponentOne from "./components/component-one";
+import {} from "./components/component-one"
 
 export const UserDataContext = createContext({});
 export default function Practices() {
